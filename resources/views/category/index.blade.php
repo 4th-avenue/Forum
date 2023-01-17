@@ -6,6 +6,9 @@
             <div class="col-12">
                 <label>Category Title</label>
                 <input type="text" class="form-control">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                    <button class="btn btn-primary" type="button">Create</button>
+                </div>
             </div>
         </div>
         <div class="row">
