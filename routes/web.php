@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ use App\Http\Controllers\ForumController;
 
 Route::get('/', [ForumController::class, 'index']);
 Route::get('/1/view', [ForumController::class, 'view']);
+Route::get('/category', [CategoryController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
