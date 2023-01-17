@@ -2,7 +2,15 @@
 
 @section('content')
     <div class="container">
-        <div class="row mt-5">
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="{{url('/')}}/forum/create" class="btn btn-success" type="button">New Post</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row mt-3">
             <div class="col-12">
                 <h4>Music</h4>
                 <ul class="list-group">
