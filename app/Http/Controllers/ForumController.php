@@ -10,4 +10,8 @@ class ForumController extends Controller
     {
         return view('forum.index');
     }
+    public function view()
+    {
+        return view('forum.view');
+    }
 }
