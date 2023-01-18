@@ -24,6 +24,7 @@ Route::get('/1/view', [ForumController::class, 'view']);
 Route::get('/create', [ForumController::class, 'create']);
 
 Route::get('/category', [CategoryController::class, 'index']);
+Route::post('/category/store', [CategoryController::class, 'store']);
 Route::get('/category/1/view', [CategoryController::class, 'view']);
 
 Route::get('/dashboard', function () {
