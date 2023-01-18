@@ -21,6 +21,8 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/', [ForumController::class, 'index']);
 Route::get('/1/view', [ForumController::class, 'view']);
+Route::get('/create', [ForumController::class, 'create']);
+
 Route::get('/category', [CategoryController::class, 'index']);
 Route::get('/category/1/view', [CategoryController::class, 'view']);
 
