@@ -13,9 +13,11 @@ class CategoryController extends Controller
 
         return view('category.index')->with('categories', $categories);
     }
-    public function view()
+    public function view($id)
     {
-        return view('category.view');
+        $category = Category::find($id);
+
+        return view('category.view')->with('category', $category);;
     }
     public function store(Request $request)
     {
@@ -23,6 +25,13 @@ class CategoryController extends Controller
         $category->title = $request->title;
         $category->save();
 
+        return redirect('/category');
+    }
+    public function delete($id)
+    {
+        $category = Category::find($id);
+        $category->delete();
+        
         return redirect('/category');
     }
 }
