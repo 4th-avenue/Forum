@@ -27,6 +27,7 @@ Route::get('/category', [CategoryController::class, 'index']);
 Route::post('/category/store', [CategoryController::class, 'store']);
 Route::get('/category/{id}/view', [CategoryController::class, 'view']);
 Route::delete('/category/{id}/delete', [CategoryController::class, 'delete']);
+Route::put('/category/{id}/update', [CategoryController::class, 'update']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
