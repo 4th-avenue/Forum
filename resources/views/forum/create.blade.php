@@ -16,8 +16,9 @@
             <div class="col-12">
                 <label>Category</label>
                 <select class="form-select">
-                    <option value="music">music</option>
-                    <option value="movie">movie</option>
+                    @foreach ($categories as $category)
+                    <option value="{{$category->id}}">{{$category->title}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -37,6 +38,7 @@
 @endsection
 
 @section('before_body_end_tag')
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 <script>
     ClassicEditor
         .create( document.querySelector( '#editor' ) )
