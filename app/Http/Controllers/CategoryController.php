@@ -9,41 +9,61 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::orderby('title', 'asc')->get();
-
-        return view('category.index')->with('categories', $categories);
+        if(isset(auth()->user()->id)){
+            $categories = Category::orderby('title', 'asc')->get();
+    
+            return view('category.index')->with('categories', $categories);
+        }else{
+            return redirect('/');
+        }
     }
 
     public function view($id)
     {
-        $category = Category::find($id);
+        if(isset(auth()->user()->id)){
+            $category = Category::find($id);
 
-        return view('category.view')->with('category', $category);;
+            return view('category.view')->with('category', $category);;
+        }else{
+            return redirect('/');
+        }
     }
 
     public function store(Request $request)
     {
-        $category = new Category;
-        $category->title = $request->title;
-        $category->save();
-
-        return redirect('/category');
+        if(isset(auth()->user()->id)){
+            $category = new Category;
+            $category->title = $request->title;
+            $category->save();
+    
+            return redirect('/category');
+        }else{
+            return redirect('/');
+        }
     }
 
     public function delete($id)
     {
-        $category = Category::find($id);
-        $category->delete();
-
-        return redirect('/category');
+        if(isset(auth()->user()->id)){
+            $category = Category::find($id);
+            $category->delete();
+    
+            return redirect('/category');
+        }else{
+            return redirect('/');
+        }
     }
 
     public function update(Request $request, $id)
     {
-        $category = Category::find($id);
-        $category->title = $request->title;
-        $category->save();
-
-        return redirect('/category');
+        if(isset(auth()->user()->id)){
+            $category = Category::find($id);
+            $category->title = $request->title;
+            $category->save();
+    
+            return redirect('/category');
+        }else{
+            return redirect('/');
+        }
     }
 }

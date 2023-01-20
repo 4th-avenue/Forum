@@ -27,6 +27,7 @@ Route::post('/store', [ForumController::class, 'store']);
 Route::post('/update', [ForumController::class, 'update']);
 Route::get('/{id}/category', [ForumController::class, 'category']);
 Route::delete('/{id}/delete', [ForumController::class, 'delete']);
+Route::post('/reply/store', [ForumController::class, 'replyStore']);
 
 Route::get('/category', [CategoryController::class, 'index']);
 Route::post('/category/store', [CategoryController::class, 'store']);

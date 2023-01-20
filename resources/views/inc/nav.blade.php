@@ -6,10 +6,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                @auth    
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/')}}/category">Category</a>
                 </li>
-
+                @endauth
                 @guest    
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/')}}/login">Login</a>
