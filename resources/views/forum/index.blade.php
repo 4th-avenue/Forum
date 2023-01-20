@@ -30,14 +30,14 @@
                                     <span class="badge rounded-pill bg-info"><i class="fa fa-comment" aria-hidden="true"></i> 3</span>
                                     <span class="badge rounded-pill bg-danger"><i class="fa fa-heart" aria-hidden="true"></i> 3</span>
                                     <br>
-                                    <small>{{$category->created_at}}・by mystee</small>
+                                    <small>{{$post->created_at}}・by mystee</small>
                                 </li>
                                 @endforeach
                             </ul>
                         </div>
                         <div class="col-12 my-3">
                             <div class="d-grid gap-2 col-6 mx-auto">
-                                <button type="button" class="btn btn-dark">All Posts of {{$category->title}} Category</button>
+                                <a href="{{url('/')}}/{{$category->id}}/category" class="btn btn-dark">All Posts of {{$category->title}} Category</a>
                             </div>
                         </div>
                     </div>

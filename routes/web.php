@@ -23,6 +23,8 @@ Route::get('/', [ForumController::class, 'index']);
 Route::get('/1/view', [ForumController::class, 'view']);
 Route::get('/create', [ForumController::class, 'create']);
 Route::post('/store', [ForumController::class, 'store']);
+Route::get('/{id}/category', [ForumController::class, 'category']);
+
 
 Route::get('/category', [CategoryController::class, 'index']);
 Route::post('/category/store', [CategoryController::class, 'store']);

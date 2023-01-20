@@ -37,4 +37,12 @@ class ForumController extends Controller
 
         return response()->json($data);
     }
+    public function category($id)
+    {
+        $category = Category::find($id);
+        $category_title = $category->title;
+
+        $posts = Post::where('category_id', $id)->orderby('id', 'desc')->get();
+        return view('forum.category')->with('posts', $posts)->with('category_title', $category_title);
+    }
 }
