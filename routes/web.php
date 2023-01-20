@@ -24,6 +24,7 @@ Route::get('/{id}/view', [ForumController::class, 'view']);
 Route::get('/{id}/edit', [ForumController::class, 'edit']);
 Route::get('/create', [ForumController::class, 'create']);
 Route::post('/store', [ForumController::class, 'store']);
+Route::post('/update', [ForumController::class, 'update']);
 Route::get('/{id}/category', [ForumController::class, 'category']);
 
 

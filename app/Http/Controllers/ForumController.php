@@ -44,6 +44,22 @@ class ForumController extends Controller
 
         return response()->json($data);
     }
+    public function update(Request $request)
+    {
+        $post = Post::find($request->post_id);
+        $post->title = $request->title;
+        $post->category_id = $request->category_id;
+        $post->content = $request->content;
+        $post->save();
+
+        $result = $request->all();
+
+        $data = array(
+            'result' => $result
+        );
+
+        return response()->json($data);
+    }
     public function category($id)
     {
         $category = Category::find($id);
