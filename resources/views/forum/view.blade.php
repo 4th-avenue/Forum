@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 border border-1 mt-5">
-                <h3>{{$post->title}}</h3>
+                <h3 class="bg-light border border-1 py-3 px-3 mt-3">{{$post->title}}</h3>
                 {!!$post->content!!}
                 <hr>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
