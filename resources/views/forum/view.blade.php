@@ -9,7 +9,11 @@
                 <hr>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
                     <a href="{{url('/')}}/{{$post->id}}/edit" class="btn btn-secondary me-md-2">Update</a>
-                    <button class="btn btn-danger" type="button">Delete</button>
+                    <form method="POST" action="/{{$post->id}}/delete">
+                        @method('DELETE')
+                        @csrf
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
                 </div>
             </div>
         </div>

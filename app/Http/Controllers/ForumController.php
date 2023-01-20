@@ -68,4 +68,11 @@ class ForumController extends Controller
         $posts = Post::where('category_id', $id)->orderby('id', 'desc')->get();
         return view('forum.category')->with('posts', $posts)->with('category_title', $category_title);
     }
+    public function delete($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+
+        return redirect('/');
+    }
 }
