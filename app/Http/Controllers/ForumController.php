@@ -17,6 +17,12 @@ class ForumController extends Controller
         $post = Post::find($id);
         return view('forum.view')->with('post', $post);
     }
+    public function edit($id)
+    {
+        $categories = Category::orderby('title', 'asc')->get();
+        $post = Post::find($id);
+        return view('forum.edit')->with('post', $post)->with('categories', $categories);
+    }
     public function create()
     {
         $categories = Category::orderby('title', 'asc')->get();

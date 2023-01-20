@@ -8,7 +8,7 @@
                 {!!$post->content!!}
                 <hr>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-                    <button class="btn btn-secondary me-md-2" type="button">Update</button>
+                    <a href="{{url('/')}}/{{$post->id}}/edit" class="btn btn-secondary me-md-2">Update</a>
                     <button class="btn btn-danger" type="button">Delete</button>
                 </div>
             </div>
