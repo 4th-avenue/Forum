@@ -4,8 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12 border border-1 mt-5">
-                <h3>Lorem ipsum dolor sit amet.</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse ad numquam illo ut fugit, sequi repellat eligendi fuga aut nobis laboriosam doloribus aspernatur ipsam magnam quaerat voluptas voluptatibus earum sapiente dignissimos rerum odit. Repellendus accusantium incidunt facere fugit quae harum iusto, temporibus praesentium non quibusdam sint nostrum commodi impedit? Impedit.</p>
+                <h3>{{$post->title}}</h3>
+                {!!$post->content!!}
                 <hr>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
                     <button class="btn btn-secondary me-md-2" type="button">Update</button>

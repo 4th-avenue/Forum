@@ -12,9 +12,10 @@ class ForumController extends Controller
     {
         return view('forum.index');
     }
-    public function view()
+    public function view($id)
     {
-        return view('forum.view');
+        $post = Post::find($id);
+        return view('forum.view')->with('post', $post);
     }
     public function create()
     {
