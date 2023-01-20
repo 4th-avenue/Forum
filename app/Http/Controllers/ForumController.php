@@ -21,7 +21,12 @@ class ForumController extends Controller
     {
         $categories = Category::orderby('title', 'asc')->get();
         $post = Post::find($id);
-        return view('forum.edit')->with('post', $post)->with('categories', $categories);
+
+        if(auth()->user()->id == $post->user_id){
+            return view('forum.edit')->with('post', $post)->with('categories', $categories);
+        }else{
+            return redirect('/');
+        }
     }
     public function create()
     {

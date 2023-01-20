@@ -6,6 +6,8 @@
             <div class="col-12 border border-1 mt-5">
                 <h3 class="bg-light border border-1 py-3 px-3 mt-3">{{$post->title}}</h3>
                 {!!$post->content!!}
+
+                @if($post->user_id == auth()->user()->id)
                 <hr>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
                     <a href="{{url('/')}}/{{$post->id}}/edit" class="btn btn-secondary me-md-2">Update</a>
@@ -15,6 +17,7 @@
                         <button class="btn btn-danger" type="submit">Delete</button>
                     </form>
                 </div>
+                @endif
             </div>
         </div>
         <div class="row my-3">
