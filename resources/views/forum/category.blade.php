@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="container">
-        <div class="row mt-3">
+        <div class="row my-3">
             <div class="col-12">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="{{url('/')}}/create" class="btn btn-success" type="button">New Post</a>
+                    <a href="{{url('/')}}/create" class="btn btn-success">New Post</a>
                 </div>
             </div>
         </div>
@@ -25,6 +25,9 @@
                         </li>
                         @endforeach
                     </ul>
+                </div>
+                <div class="col-12 my-3">
+                    {{$posts->links()}}
                 </div>
             </div>
         @endif

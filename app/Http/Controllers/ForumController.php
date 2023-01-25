@@ -79,7 +79,7 @@ class ForumController extends Controller
         $category = Category::find($id);
         $category_title = $category->title;
 
-        $posts = Post::where('category_id', $id)->orderby('id', 'desc')->get();
+        $posts = Post::where('category_id', $id)->orderby('id', 'desc')->paginate(3);
         return view('forum.category')->with('posts', $posts)->with('category_title', $category_title);
     }
     public function delete($id)
