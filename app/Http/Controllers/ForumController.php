@@ -100,6 +100,5 @@ class ForumController extends Controller
         $reply->save();
 
         return redirect('/'.$request->post_id.'/view');
-
     }
 }

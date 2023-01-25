@@ -29,10 +29,17 @@
                                 @foreach ($posts as $post)
                                 <li class="list-group-item list-group-item-action">
                                     <a href="{{url('/')}}/{{$post->id}}/view" style="text-decoration: none">{{$post->title}}</a>
-                                    <span class="badge rounded-pill bg-info"><i class="fa fa-comment" aria-hidden="true"></i> 3</span>
+                                    <span class="badge rounded-pill bg-info"><i class="fa fa-comment"></i>
+                                    {{App\Models\Reply::where('post_id', $post->id)->count()}}
+                                    </span>
                                     <span class="badge rounded-pill bg-danger"><i class="fa fa-heart" aria-hidden="true"></i> 3</span>
                                     <br>
-                                    <small>{{$post->created_at}}・by mystee</small>
+                                    <small>{{$post->created_at}}・by
+                                    @php
+                                        $user = App\Models\User::find($post->user_id);
+                                    @endphp
+                                    {{$user->name}}
+                                    </small>
                                 </li>
                                 @endforeach
                             </ul>
