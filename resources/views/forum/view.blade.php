@@ -50,6 +50,7 @@
                 </ul>
             </div>
         </div>
+        @auth    
         <hr>
         <form method="POST" action="/reply/store">
             @csrf
@@ -67,5 +68,6 @@
                 </div>
             </div>
         </form>
+        @endauth
     </div>
 @endsection
