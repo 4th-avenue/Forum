@@ -4,18 +4,18 @@
     <div class="container">
         <div class="row">
             <div class="col-12 border border-1 mt-5">
-                <h3 class="bg-light border border-1 py-3 px-3 mt-3">{{$post->title}}</h3>
+                <h3 class="bg-light border border-1 py-3 px-3 my-3">{{$post->title}}</h3>
                 {!!$post->content!!}
 
                 @auth    
                 @if($post->user_id == auth()->user()->id)
-                <hr>
+                <hr class="my-3">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-                    <a href="{{url('/')}}/{{$post->id}}/edit" class="btn btn-secondary me-md-2">Update</a>
+                    <a href="{{url('/')}}/{{$post->id}}/edit" class="btn btn-outline-secondary me-md-2">Update</a>
                     <form method="POST" action="/{{$post->id}}/delete">
                         @method('DELETE')
                         @csrf
-                        <button class="btn btn-danger" type="submit">Delete</button>
+                        <button class="btn btn-outline-danger" type="submit">Delete</button>
                     </form>
                 </div>
                 @endif
@@ -24,9 +24,13 @@
         </div>
         <div class="row my-3">
             <div class="col-12">
-                <div class="d-grid gap-2 col-3 mx-auto">
-                    <button class="btn btn-outline-danger rounded-pill fs-4"><i class="fa fa-heart" aria-hidden="true"></i> 3</button>
-                </div>
+                <form method="POST" action="/heart">
+                    @csrf
+                    <input type="hidden" name="post_id" value="{{$post->id}}">
+                    <div class="d-grid gap-2 col-3 mx-auto">
+                        <button type="submit" class="btn btn-outline-danger rounded-pill fs-4"><i class="fa fa-heart"></i> {{App\models\Heart::where('post_id', $post->id)->count();}}</button>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="row my-3">
@@ -63,7 +67,7 @@
             <div class="row my-3">
                 <div class="col-12">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-outline-primary" type="submit">Submit</button>
                     </div>
                 </div>
             </div>

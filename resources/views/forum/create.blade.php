@@ -30,7 +30,7 @@
         <div class="row my-3">
             <div class="col-12">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
-                    <button class="btn btn-success" type="button" id="submit">Submit</button>
+                    <button class="btn btn-outline-success" type="button" id="submit">Submit</button>
                 </div>
             </div>
         </div>

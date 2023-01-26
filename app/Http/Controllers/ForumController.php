@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Reply;
+use App\Models\Heart;
 
 class ForumController extends Controller
 {
@@ -98,6 +99,28 @@ class ForumController extends Controller
         $reply->post_id = $request->post_id;
         $reply->reply = $request->reply;
         $reply->save();
+
+        return redirect('/'.$request->post_id.'/view');
+    }
+    public function heart(Request $request)
+    {
+        if(isset(auth()->user()->id)){
+            $post_id = $request->post_id;
+            $user_id = auth()->user()->id;
+    
+            $hearts = Heart::where('post_id', $post_id)->where('user_id', $user_id)->get();
+
+            if(count($hearts)>0){
+                foreach($hearts as $heart){
+                    $heart->delete();
+                }
+            }else{
+                $heart = new Heart;
+                $heart->user_id = $user_id;
+                $heart->post_id = $post_id;
+                $heart->save();
+            }
+        }
 
         return redirect('/'.$request->post_id.'/view');
     }
